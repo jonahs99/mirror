@@ -1,7 +1,9 @@
 Bullet = Object:extend()
-function Bullet:new()
+
+function Bullet:new(player)
+
 	self.image = love.graphics.newImage("laser.png")
-	self.pos = Vec2(300,300)
+	self.pos = Vec2(player.pos.x,player.pos.y)
 	self.vel = Vec2(2,0)
 
 	-- This makes the scaling pixel-arty

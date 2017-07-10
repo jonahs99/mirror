@@ -4,6 +4,7 @@ function Player:new()
 	self.image = love.graphics.newImage("player.png")
 	self.pos = Vec2(300, 200)
 
+	-- This makes the scaling pixel-arty
 	self.image:setFilter('nearest', 'nearest')
 end
 
