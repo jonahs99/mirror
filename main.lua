@@ -9,6 +9,7 @@ function love.load()
     require "bullet"
 
     player = Player()
+    clicking = false
 
     bullets = {}
 
@@ -16,10 +17,11 @@ function love.load()
 end
 
 function love.update(dt)
+    player:update()
+    shoot()
 	for i = 1, #bullets do
         bullets[i]:update()
     end
-    shoot()
 end
 
 function love.draw()
@@ -33,6 +35,16 @@ end
 
 function shoot()
     if love.mouse.isDown(1) then
-        bullets[#bullets+1] = Bullet(player)
+        if !clicking then
+            -- Just clicked the mouse button
+            
+        end
+        clicking = true
+    else
+        if clicking then
+            -- Just lifted the mouse button
+
+        end
+        clicking = false
     end
 end
