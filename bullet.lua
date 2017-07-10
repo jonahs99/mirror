@@ -15,7 +15,7 @@ end
 
 function Bullet:update()
 
-	self.pos = self.pos.plus(self.vel)
+	self.pos = self.pos:plus(self.vel)
 
 end
 
