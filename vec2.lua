@@ -6,13 +6,13 @@ function Vec2:new(x, y)
 end
 
 function Vec2:plus(v)
-	return Vec2(x + v.x, y + v.y)
+	return Vec2(self.x + v.x, self.y + v.y)
 end
 
 function Vec2:minus(v)
-	return Vec2(x - v.x, y - v.y)
+	return Vec2(self.x - v.x, self.y - v.y)
 end
 
 function Vec2:times(a)
-	return Vec2(x * a, y * a)
+	return Vec2(self.x * a, self.y * a)
 end

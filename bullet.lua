@@ -4,6 +4,7 @@ function Bullet:new()
 	self.image = love.graphics.newImage("ping.png")
 	self.pos = Vec2(300,300)
 	self.vel = Vec2(2,0)
+
 end
 
 function Bullet:draw()
@@ -16,4 +17,5 @@ function Bullet:update()
 
 	self.pos = self.pos.plus(self.vel)
 
-	end
+end
+
