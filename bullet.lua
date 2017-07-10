@@ -11,4 +11,11 @@ function Bullet:draw()
 
 	love.graphics.draw(self.image, self.pos.x, self.pos.y, 0, 0.4)
 
+end	
+
+function Bullet:update()
+
+	self.pos = self.pos:plus(self.vel)
+
 end
+

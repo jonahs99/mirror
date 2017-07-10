@@ -21,7 +21,9 @@ function love.load()
 end
 
 function love.update(dt)
-	
+	for i = 1, #bullets do
+        bullets[i]:update()
+    end
 end
 
 function love.draw()
