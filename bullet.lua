@@ -2,9 +2,8 @@ Bullet = Object:extend()
 function Bullet:new()
 
 	self.image = love.graphics.newImage("ping.png")
-	self.x = 200
-	self.y = 200
-
+	self.pos = vec2(300,300)
+	self.vel = vec2(2,0)
 end
 
 function Bullet:draw()
