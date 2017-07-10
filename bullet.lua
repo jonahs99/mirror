@@ -9,6 +9,6 @@ end
 
 function Bullet:draw()
 
-	love.graphics.draw(self.image, self.pos.x, self.pos.y)
+	love.graphics.draw(self.image, self.pos.x, self.pos.y, 0, 0.4)
 
 end

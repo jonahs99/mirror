@@ -17,7 +17,7 @@ function love.load()
     	bullets[i].y = math.random(0, 300)
     end
 
-    love.graphics.setBackgroundColor(12,14,28)
+    love.graphics.setBackgroundColor(50,50,50)
 end
 
 function love.update(dt)
