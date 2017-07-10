@@ -35,7 +35,7 @@ end
 
 function shoot()
     if love.mouse.isDown(1) then
-        if !clicking then
+        if not clicking then
             -- Just clicked the mouse button
             
         end

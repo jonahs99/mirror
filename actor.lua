@@ -13,7 +13,7 @@ end
 
 function Actor:update()
 	self.pos = self.pos:plus(self.vel)
-	self.vel = self.vel.times(self.drag)
+	self.vel = self.vel:times(self.drag)
 	self.rot = math.atan2(self.vel.y, self.vel.x)
 end
 
