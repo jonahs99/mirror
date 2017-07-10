@@ -11,12 +11,6 @@ function love.load()
 
     bullets = {}
 
-    for i=1,2 do
-    	bullets[i] = Bullet()
-    	bullets[i].x = math.random(0, 400)
-    	bullets[i].y = math.random(0, 300)
-    end
-
     love.graphics.setBackgroundColor(12,14,28)
 end
 
@@ -24,6 +18,7 @@ function love.update(dt)
 	for i = 1, #bullets do
         bullets[i]:update()
     end
+    shoot()
 end
 
 function love.draw()
@@ -33,4 +28,10 @@ function love.draw()
 		bullets[i]:draw()
 	end
 
+end
+
+function shoot()
+    if love.mouse.isDown(1) then
+        bullets[#bullets+1] = Bullet(player)
+    end
 end
