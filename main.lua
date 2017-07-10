@@ -4,6 +4,7 @@ function love.load()
     Object = require "classic"
 
     require "vec2"
+    require "actor"
     require "player"
     require "bullet"
 
@@ -32,6 +33,6 @@ end
 
 function shoot()
     if love.mouse.isDown(1) then
-        bullets[#bullets+1] = Bullet(player)
+        bullets[#bullets+1] = Bullet()
     end
 end
