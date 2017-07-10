@@ -9,11 +9,15 @@ function love.load()
     require "bullet"
 
     player = Player()
+
     clicking = false
+    clickStart = Vec2(0,0)
+    clickEnd = Vec2(0,0)
 
     bullets = {}
 
     love.graphics.setBackgroundColor(50,50,50)
+    love.window.setMode(1136, 640, {msaa=4})
 end
 
 function love.update(dt)
@@ -27,7 +31,7 @@ end
 function love.draw()
 	player:draw()
     if clicking then
-        love.graphics.line(startx,starty,endx,endy)
+        love.graphics.line(clickStart.x,clickStart.y,clickEnd.x,clickEnd.y)
     end
 	for i=1,#bullets do
 		bullets[i]:draw()
@@ -39,18 +43,28 @@ function shoot()
     if love.mouse.isDown(1) then
         if not clicking then
             -- Just clicked the mouse button
-            startx = love.mouse.getX()
-            starty = love.mouse.getY()
+            clickStart.x = love.mouse.getX()
+            clickStart.y = love.mouse.getY()
         end
         clicking = true
-        endx = love.mouse.getX()
-        endy = love.mouse.getY()
+        clickEnd.x = love.mouse.getX()
+        clickEnd.y = love.mouse.getY()
     else
         if clicking then
             -- Just lifted the mouse button
-            endx = love.mouse.getX()
-            endy = love.mouse.getY()
-            bullets[#bullets+1] = Bullet(player)
+            clickEnd.x = love.mouse.getX()
+            clickEnd.y = love.mouse.getY()
+
+            local bullet = Bullet(player)
+            local vel = clickEnd:minus(clickStart)
+
+            if not (vel:mag() == 0) then
+                vel = vel:times(2.0 / vel:mag())
+                bullet.vel = vel
+                bullets[#bullets+1] = bullet
+
+                player.vel = player.vel:plus(vel:times(-0.5))
+            end
         end
         clicking = false
     end

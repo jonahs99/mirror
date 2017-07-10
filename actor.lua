@@ -5,7 +5,7 @@ function Actor:new(self, pos, imagePath)
 	self.pos = pos
 	self.rot = 0
 	self.vel = Vec2(0.1, 0.2)
-	self.drag = 0.95
+	self.drag = 1
 
 	-- This makes the scaling pixel-arty
 	self.image:setFilter('nearest', 'nearest')
@@ -14,7 +14,9 @@ end
 function Actor:update()
 	self.pos = self.pos:plus(self.vel)
 	self.vel = self.vel:times(self.drag)
-	self.rot = math.atan2(self.vel.y, self.vel.x)
+	if not (self.vel.y == 0 and self.vel.x == 0) then
+		self.rot = math.atan2(self.vel.y, self.vel.x)
+	end
 end
 
 function Actor:draw()
