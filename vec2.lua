@@ -13,3 +13,6 @@ function Vec2:minus(v)
 	return Vec2(x - v.x, y - v.y)
 end
 
+function Vec2:times(a)
+	return Vec2(x * a, y * a)
+end
