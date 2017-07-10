@@ -33,6 +33,6 @@ end
 
 function shoot()
     if love.mouse.isDown(1) then
-        bullets[#bullets+1] = Bullet()
+        bullets[#bullets+1] = Bullet(player)
     end
 end

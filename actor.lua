@@ -1,6 +1,6 @@
 Actor = Object:extend()
 
-function Actor:new(pos, imagePath)
+function Actor:new(self, pos, imagePath)
 	self.image = love.graphics.newImage(imagePath)
 	self.pos = pos
 	self.vel = Vec2(0, 0)
